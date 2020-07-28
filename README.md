@@ -1,11 +1,17 @@
 ## About
-```
-I do not understand what I cannot build - Richard Feynman
-```
-The goal is to develop Artificial Intelligence (both Deep Learning and Statistical Machine Learning) in an effort to better understand them
+Implementations of Algorithms used in Machine Learning and Deep Learning. 
 
-### SimpleML
-Implementations of Statistical Machine Learning Algorithms mostly in numpy
+### ML
+Implementations of lots of **Machine Learning** Algorithms on lots of different topics
+- Linear Regression
+- Trees
+- Numerical Methods (Singular Variable Decomposition, Householder Algorithm etc...)
+- ...
 
-## SimpleDL
-Implementations of Deep Learning Algorithms mostly in Torch
+### TorchDL
+Implementations of lots of **Deep Learning** Algorithms on lots of different topics
+- Natural Language Processing (NLP)
+- Computer Vision (CV)
+- Generative Deep Learning (Gans, Autoencoders, Autoregressive)
+- Graph Neural Networks
+- ...
