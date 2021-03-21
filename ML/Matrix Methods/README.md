@@ -18,3 +18,4 @@ But all this stuff is pretty rigorous, and inaccesible at a university level, so
 - [Numerical Analysis @ Cornell](https://www.cs.cornell.edu/~bindel/class/cs6210-f12/lectures.html)
 - [Numerical Analysis @ UToronto](https://www.cs.toronto.edu/~lczhang/csc338_20191/homework.html)
 - [Numerical Analysis @ WI](https://www.math.wisc.edu/~jroos/19.2.514/index.html)
+- [Numerical Linear Algebra](https://github.com/fastai/numerical-linear-algebra)
