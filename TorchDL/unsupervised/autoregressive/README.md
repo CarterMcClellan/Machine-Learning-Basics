@@ -6,4 +6,4 @@
 
 ### Links
 - [Deep Generative Models @ Stanford](https://deepgenerativemodels.github.io/notes/autoregressive/)
-- [Deep Unsupervised Learning @ Cal](https://sites.google.com/view/berkeley-cs294-158-sp19/home)
+- [Deep Unsupervised Learning @ Cal](https://sites.google.com/view/berkeley-cs294-158-sp20/home)
