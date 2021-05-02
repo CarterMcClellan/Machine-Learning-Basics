@@ -24,7 +24,7 @@ def str_2_tensor(str_, tokenizer, vocab):
     return torch.tensor([vocab[token] for token in tokenizer(str_)], dtype=torch.long)
 
 def dataset_2_loader(device, dataset, en_vocab, fr_vocab, en_tokenizer, fr_tokenizer,
-                     PAD_IDX, BOS_IDX, EOS_IDX, batch_size=16):
+                     PAD_IDX, BOS_IDX, EOS_IDX, batch_size=4):
     
     def generate_batch(data_batch):
         fr_batch, en_batch = [], []
@@ -43,9 +43,6 @@ def dataset_2_loader(device, dataset, en_vocab, fr_vocab, en_tokenizer, fr_token
     # note: we are not able to shuffle a raw iterable dataset
     loader = DataLoader(dataset, batch_size=batch_size, collate_fn=generate_batch)
     return loader
-
-def iter_2_gen(ds):
-    return GenWrapper(ds)
 
 # Step 1) Get Dataset
 def get_datasets():
