@@ -21,10 +21,17 @@ from torchtext.data.utils import get_tokenizer
 
 # Utility Functions
 def str_2_tensor(str_, tokenizer, vocab):
-    return torch.tensor([vocab[token] for token in tokenizer(str_)], dtype=torch.long)
+    encoding = []
+    for token in tokenizer(str_):
+        # note: 
+        # implicitly, if the token is unknown
+        # assign to <unk>
+        encoding.append(vocab.stoi[token])
+
+    return torch.tensor(encoding, dtype=torch.long)
 
 def dataset_2_loader(device, dataset, en_vocab, fr_vocab, en_tokenizer, fr_tokenizer,
-                     PAD_IDX, BOS_IDX, EOS_IDX, batch_size=4):
+                     PAD_IDX, BOS_IDX, EOS_IDX, batch_size=16):
     
     def generate_batch(data_batch):
         fr_batch, en_batch = [], []
@@ -57,12 +64,16 @@ def get_tokenizers():
     return fr_tokenizer, en_tokenizer
 
 # Step 3) Generate Vocabulary from Trainset
-def get_vocabs(trainset, en_tokenizer, fr_tokenizer):
+def get_vocabs(trainset, en_tokenizer, fr_tokenizer, vocab_max_size=20000):
     en_counter = Counter()
     fr_counter = Counter()
-    for (en_sentence, fr_sentence) in tqdm(trainset, desc="Build Vocabularies"):
+    for (en_sentence, fr_sentence) in trainset:
         en_counter.update(en_tokenizer(en_sentence))
         fr_counter.update(fr_tokenizer(fr_sentence))
+
+        # limit our vocabulary sizes
+        if len(en_counter) > vocab_max_size or len(fr_counter) > vocab_max_size:
+            break
     
     en_vocab = Vocab(en_counter, specials=['<unk>', '<pad>', '<bos>', '<eos>'])
     fr_vocab = Vocab(fr_counter, specials=['<unk>', '<pad>', '<bos>', '<eos>'])
@@ -91,3 +102,12 @@ def get_loaders(device):
     test_dataloader = dataset_2_loader(device, testset, en_vocab, fr_vocab, en_tokenizer, fr_tokenizer,
                                        PAD_IDX, BOS_IDX, EOS_IDX)
     return train_dataloader, valid_dataloader, test_dataloader, fr_tokenizer, en_tokenizer, en_vocab, fr_vocab
+
+if __name__ == "__main__":
+    gpu = torch.device("cuda:0")
+    train_dataloader, valid_dataloader, test_dataloader, fr_tokenizer, en_tokenizer, en_vocab, fr_vocab = get_loaders(gpu)
+    print(en_vocab.stoi["fhdaklhfkdjah"])
+    print(en_vocab["<unk>"])
+    for i, (src, trg) in enumerate(train_dataloader):
+        print(src.shape)
+        break

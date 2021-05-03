@@ -25,6 +25,14 @@ def download_IWSLT2016(target_dir='./IWSLT2016'):
     torchtext.datasets.IWSLT2016(root=target_dir)
     print("Downloaded IWSLT2016")
 
+def download_wiki_corpora(language_code, dump):
+    dump_name="{}wiki-{}-pages-articles-multistream.xml.bz2".format(language_code, dump)
+    link="https://dumps.wikimedia.org/{}wiki/{}/".format(language_code, dump) + dump_name
+    download_from_url(link)
+
+    # note: after downloading from wiki dumps
+    # we are going to want to use wikiextractor
+    # here: https://github.com/attardi/wikiextractor
+
 if __name__ == "__main__":
-    download_from_url(WAR_AND_PEACE, "war_and_peace.txt")
-    download_IWSLT2016()
+    download_wiki_corpora("fr", "20210120")
