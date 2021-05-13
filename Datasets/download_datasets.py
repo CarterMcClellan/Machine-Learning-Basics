@@ -5,6 +5,9 @@ from tqdm import tqdm
 
 import torchtext
 
+import spacy
+
+
 WAR_AND_PEACE = "https://raw.githubusercontent.com/mmcky/nyu-econ-370/master/notebooks/data/book-war-and-peace.txt"
 
 def download_from_url(url, filename):
@@ -34,5 +37,9 @@ def download_wiki_corpora(language_code, dump):
     # we are going to want to use wikiextractor
     # here: https://github.com/attardi/wikiextractor
 
+def download_spacy(model, path):
+    sputnik.install('spacy', spacy.about.__version__, model, data_path=path)
+
 if __name__ == "__main__":
-    download_wiki_corpora("fr", "20210120")
+    # download_wiki_corpora("fr", "20210120")
+    download_spacy('en_core_web_sm', os.getcwd())
