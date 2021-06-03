@@ -1,5 +1,9 @@
-from torchtext.datasets import Multi30k
-from torchtext.data import Field, BucketIterator
+try:
+    from torchtext.datasets import Multi30k
+    from torchtext.data import Field, BucketIterator
+except:
+    from torchtext.legacy.datasets import Multi30k
+    from torchtext.legacy.data import Field, BucketIterator
 
 import spacy
 import os
