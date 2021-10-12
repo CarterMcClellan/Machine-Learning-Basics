@@ -1,4 +1,4 @@
-# A.i.Logrithms
-Architecture, Theory, and Application for Machine Learning (ML), and Deep Learning (DL)
-
-> "It's cool, but I don't really understand why you named the repo A.i.Logrithms" - Carl Sagan (maybe)
+# Machine Learning Basics
+- **DL**; basic architectures (MLP, RNN, LSTM, GRU, ResNet), regularizers, and normalization
+- **ML**; tree based (Decision Trees, Random Forest, GBM), bayesian techniques, linear families, and kernel methods
+- **NA**; matrix methods (SVM, QR, Jordan), optimizers (Newton, SGD, Adam), loss functions (Entropy, KL, NLL)
