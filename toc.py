@@ -15,7 +15,7 @@ def format_url(path):
         converts path (eg foo/bar) into link which can be used to preview the notebook
         eg (https://nbviewer/github/{gh_username}/{repo_name}/blob/{branch}/foo/bar
     """
-    return " ".join(["[{}](!{})".format(key, value.format(gh_username=GH_USERNAME, repo_name=REPO_NAME, branch=BRANCH, path=path)) for key, value in BASE_URL.items()])
+    return " ".join(["[{}]({})".format(key, value.format(gh_username=GH_USERNAME, repo_name=REPO_NAME, branch=BRANCH, path=path)) for key, value in BASE_URL.items()])
 
 def create_table(section, paths):
     writer = MarkdownTableWriter(
@@ -43,7 +43,6 @@ if __name__ == "__main__":
     for section in sections:
         output += create_table(section, sections[section])
 
-    print(output)
 
     with open("toc.md", "w") as f:
         f.write(output)
