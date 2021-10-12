@@ -22,11 +22,14 @@
 |                                                                 open                                                                  |           title            |
 |---------------------------------------------------------------------------------------------------------------------------------------|----------------------------|
 | [N](https://nbviewer.org/github/CarterMcClellan/Machine-Learning-Basics/blob/master/NA/Matrix%20Methods/Jordan%20Decomposition.ipynb) | Jordan Decomposition.ipynb |
+| [N](https://nbviewer.org/github/CarterMcClellan/Machine-Learning-Basics/blob/master/NA/Matrix%20Methods/QR%20Decomposition.ipynb)     | QR Decomposition.ipynb     |
 # Loss
 |                                                  open                                                   |     title     |
 |---------------------------------------------------------------------------------------------------------|---------------|
 | [N](https://nbviewer.org/github/CarterMcClellan/Machine-Learning-Basics/blob/master/Loss/Entropy.ipynb) | Entropy.ipynb |
 # DL/architecture
-|                                                      open                                                      |   title   |
-|----------------------------------------------------------------------------------------------------------------|-----------|
-| [N](https://nbviewer.org/github/CarterMcClellan/Machine-Learning-Basics/blob/master/DL/architecture/RNN.ipynb) | RNN.ipynb |
+|                                                      open                                                       |   title    |
+|-----------------------------------------------------------------------------------------------------------------|------------|
+| [N](https://nbviewer.org/github/CarterMcClellan/Machine-Learning-Basics/blob/master/DL/architecture/RNN.ipynb)  | RNN.ipynb  |
+| [N](https://nbviewer.org/github/CarterMcClellan/Machine-Learning-Basics/blob/master/DL/architecture/MLP.ipynb)  | MLP.ipynb  |
+| [N](https://nbviewer.org/github/CarterMcClellan/Machine-Learning-Basics/blob/master/DL/architecture/LSTM.ipynb) | LSTM.ipynb |

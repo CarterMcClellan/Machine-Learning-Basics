@@ -21,7 +21,7 @@ def create_table(section, paths):
     writer = MarkdownTableWriter(
         table_name=section,
         headers=["open", "title"],
-        value_matrix=[paths],
+        value_matrix=paths,
         margin=1
     )
     return writer.__str__()
@@ -37,12 +37,12 @@ if __name__ == "__main__":
                 path = root + "/" + name
 
                 open_link, title = format_url(path), name.replace("%20", " ")
-                sections[root.replace("%20", " ")] += [open_link, title]
+                sections[root.replace("%20", " ")] += [[open_link, title]]
     
     output = ""
     for section in sections:
         output += create_table(section, sections[section])
-
+    
 
     with open("toc.md", "w") as f:
         f.write(output)
