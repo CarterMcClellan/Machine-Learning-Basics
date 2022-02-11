@@ -3,3 +3,4 @@
 Data/
 *.pyc
 __pycache__/**
+*.json

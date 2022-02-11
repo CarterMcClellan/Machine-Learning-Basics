@@ -1,4 +1,4 @@
-import os, collections, pprint
+import os, collections, pprint, json
 from pytablewriter import MarkdownTableWriter
 
 BASE_URL = {
@@ -26,6 +26,15 @@ def create_table(section, paths):
     )
     return writer.__str__()
 
+def get_blog_json(sections):
+    blog_json = []
+    for key in sections:
+        value = sections[key][0][0]
+        blog_json += [{"title": key, "link": value[value.find("(") + 1:value.find(")")] }]
+
+    with open("blog_json.json", "w") as f:
+        json.dump(blog_json, f)
+
 if __name__ == "__main__":
     sections = collections.defaultdict(list)
     
@@ -43,6 +52,7 @@ if __name__ == "__main__":
     for section in sections:
         output += create_table(section, sections[section])
     
+    get_blog_json(sections)
 
     with open("toc.md", "w") as f:
         f.write(output)
